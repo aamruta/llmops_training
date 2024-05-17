@@ -22,9 +22,13 @@ index_name = "earning-calls"
 
 
 client = Client()
-embeddings = AzureOpenAIEmbeddings(azure_endpoint=os.getenv('AZURE_END_POINT'),
-                              openai_api_key=os.getenv('AZURE_OPENAI_API_KEY'), 
-                              model=os.getenv('AZURE_OPENAI_EMBEDDING_MODEL_NAME'))
+# embeddings = AzureOpenAIEmbeddings(azure_endpoint=os.getenv('AZURE_END_POINT'),
+#                               openai_api_key=os.getenv('AZURE_OPENAI_API_KEY'), 
+#                               model=os.getenv('AZURE_OPENAI_EMBEDDING_MODEL_NAME'))
+embeddings = AzureOpenAIEmbeddings(azure_endpoint=AZURE_END_POINT,
+                              openai_api_key=AZURE_OPENAI_API_KEY, 
+                              model=AZURE_OPENAI_EMBEDDING_MODEL_NAME)
+
 print(embeddings)
 # loading filenames to show in streamlit app
 with open("mappings.json", 'r') as json_file:
