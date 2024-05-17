@@ -11,14 +11,14 @@ from langchain_openai import OpenAIEmbeddings,AzureOpenAIEmbeddings
 # Index Name
 index_name = "earning-calls"
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGSMITH"]['LANGSMITH_API_KEY']
-os.environ['AZURE_OPENAI_API_KEY'] = st.secrets["OPENAI"]["AZURE_OPENAI_API_KEY"]
-os.environ['AZURE_END_POINT'] = st.secrets["OPENAI"]["AZURE_END_POINT"]
-os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY']
-os.environ['LANGCHAIN_PROJECT'] = st.secrets["LANGSMITH"]["LANGCHAIN_PROJECT"]
-os.environ['AZURE_OPENAI_EMBEDDING_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_EMBEDDING_MODEL_NAME"]
-os.environ['AZURE_OPENAI_GPT_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_GPT_MODEL_NAME"]
+# os.environ["LANGCHAIN_TRACING_V2"] = "true"
+# os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGSMITH"]['LANGSMITH_API_KEY']
+# os.environ['AZURE_OPENAI_API_KEY'] = st.secrets["OPENAI"]["AZURE_OPENAI_API_KEY"]
+# os.environ['AZURE_END_POINT'] = st.secrets["OPENAI"]["AZURE_END_POINT"]
+# os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY']
+# os.environ['LANGCHAIN_PROJECT'] = st.secrets["LANGSMITH"]["LANGCHAIN_PROJECT"]
+# os.environ['AZURE_OPENAI_EMBEDDING_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_EMBEDDING_MODEL_NAME"]
+# os.environ['AZURE_OPENAI_GPT_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_GPT_MODEL_NAME"]
 
 
 client = Client()
