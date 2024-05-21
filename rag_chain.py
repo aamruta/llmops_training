@@ -3,7 +3,7 @@ from langchain_core.runnables import Runnable, RunnableMap
 from langchain_openai import ChatOpenAI,AzureChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel
-import os
+
 def get_expression_chain(
     retriever
 ) -> Runnable:
@@ -16,7 +16,7 @@ def get_expression_chain(
         ]
     )
 
-    llm = AzureChatOpenAI(azure_endpoint=os.getenv('AZURE_END_POINT'),model=os.getenv('AZURE_OPENAI_GPT_MODEL_NAME'), temperature=0,api_version="2024-02-01",api_key=os.getenv('AZURE_OPENAI_API_KEY'))
+    llm = AzureChatOpenAI(azure_endpoint='https://akshayamrutaanji.openai.azure.com/',model="amruta-gpt-35-turbo", temperature=0,api_version="2024-02-01", api_key="21b65f032ee84603ab822d1decba8512")
 
     
     def format_docs(docs):

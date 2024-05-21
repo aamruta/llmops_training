@@ -11,25 +11,17 @@ from langchain_openai import OpenAIEmbeddings,AzureOpenAIEmbeddings
 # Index Name
 index_name = "earning-calls"
 
-# os.environ["LANGCHAIN_TRACING_V2"] = "true"
-# os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGSMITH"]['LANGSMITH_API_KEY']
-# os.environ['AZURE_OPENAI_API_KEY'] = st.secrets["OPENAI"]["AZURE_OPENAI_API_KEY"]
-# os.environ['AZURE_END_POINT'] = st.secrets["OPENAI"]["AZURE_END_POINT"]
-# os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY']
-# os.environ['LANGCHAIN_PROJECT'] = st.secrets["LANGSMITH"]["LANGCHAIN_PROJECT"]
-# os.environ['AZURE_OPENAI_EMBEDDING_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_EMBEDDING_MODEL_NAME"]
-# os.environ['AZURE_OPENAI_GPT_MODEL_NAME'] = st.secrets["OPENAI"]["AZURE_OPENAI_GPT_MODEL_NAME"]
-
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGSMITH"]['LANGSMITH_API_KEY']
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI"]["AZURE_OPENAI_API_KEY"]
+os.environ['PINECONE_API_KEY'] = st.secrets["PINECONE"]['PINECONE_API_KEY']
+os.environ['LANGCHAIN_PROJECT'] = st.secrets["LANGSMITH"]["LANGCHAIN_PROJECT"]
 
 client = Client()
-# embeddings = AzureOpenAIEmbeddings(azure_endpoint=os.getenv('AZURE_END_POINT'),
-#                               openai_api_key=os.getenv('AZURE_OPENAI_API_KEY'), 
-#                               model=os.getenv('AZURE_OPENAI_EMBEDDING_MODEL_NAME'))
-embeddings = AzureOpenAIEmbeddings(azure_endpoint=AZURE_END_POINT,
-                              openai_api_key=AZURE_OPENAI_API_KEY, 
-                              model=AZURE_OPENAI_EMBEDDING_MODEL_NAME)
 
-print(embeddings)
+embeddings = AzureOpenAIEmbeddings(azure_endpoint='https://akshayamrutaanji.openai.azure.com',
+                              openai_api_key='21b65f032ee84603ab822d1decba8512', 
+                              model='amruta-text-embedding-ada-002')
 # loading filenames to show in streamlit app
 with open("mappings.json", 'r') as json_file:
     mappings = json.load(json_file)
@@ -119,7 +111,6 @@ if st.session_state.get("run_id"):
         optional_text_label="[Optional] Please provide an explanation",
         key=f"feedback_{run_id}",
     )
-
 
     # Define score mappings for both "thumbs" and "faces" feedback systems
     score_mappings = {
